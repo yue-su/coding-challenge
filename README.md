@@ -18,6 +18,6 @@ We would like you to complete a small project for us. The design comps can be fo
 * There should be a hover interaction on product images and buttons
 * There should be a click interaction on color variants. When you click on a color variant the appropriate product image should be shown. 
 
-### Extras
+### Extras (not required)
 
 * Host your page somewhere
