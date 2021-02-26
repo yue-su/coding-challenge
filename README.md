@@ -4,9 +4,11 @@ Hello and thank you for your interest in working at Fluorescent.
 
 This is a small take home challenge that should take between 2-3 hours. 
 
-Submissions can be made by sending a link of your finished work to us. 
+Use any stack you are comfortable with.
 
-Please use any stack you are comfortable with.
+Please create a new github repo, so we can see your work.
+
+Submissions can be made by sending a link of your finished repo to us. 
 
 ### Overview
 
