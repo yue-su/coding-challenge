@@ -1,9 +1,9 @@
 .container{
-    
   max-width: 1440px;
   padding: 40px;
   border: 1px solid red;
   display: flex;
+  margin: 0 auto;
 }
 
 .rightCol {
@@ -13,5 +13,9 @@
 }
 
 .sizes {
+    display: flex;
+}
+
+.colours {
     display: flex;
 }
