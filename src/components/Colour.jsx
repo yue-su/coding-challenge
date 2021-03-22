@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Colour = () => {
+const Colour = ({dark, light}) => {
     return (
         <div>
-            
+            {dark} - {light}
         </div>
     )
 }

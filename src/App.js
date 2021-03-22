@@ -6,8 +6,8 @@ import Product from './components/Product';
 const product = {
   name: "Red Flyknit Trainers",
   price: "$190.00",
-  size: ["small", "Medium", "Large", "Extra Large"],
-  color: [
+  sizes: ["small", "Medium", "Large", "Extra Large"],
+  colors: [
     {
       id: 0,
       alt: 'red',
@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <div className="App">
-        <Product product={product} className="App-container" />    
+        <Product product={product} />    
     </div>
   )
 }
