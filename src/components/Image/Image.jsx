@@ -5,6 +5,7 @@ import Modal from "../Modal/Modal"
 
 const Image = ({ imageURL, altText }) => {
   const [zoom, setZoom] = useState(false)
+  const [hover, setHover] = useState(false)
 
   const handleZoom = () => {
     setZoom((zoom) => !zoom)
@@ -12,13 +13,22 @@ const Image = ({ imageURL, altText }) => {
   return (
     <div>
       <div className={styledImage.container}>
+        {hover && (
+          <img
+            src={icon}
+            alt="zoom_icon"
+            className={styledImage.zoom}
+            onClick={handleZoom}
+            onMouseEnter={() => setHover((hover) => !hover)}
+          />
+        )}
         <img
-          src={icon}
-          alt="zoom_icon"
-          className={styledImage.zoom}
-          onClick={handleZoom}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          src={imageURL}
+          alt={altText}
+          className={styledImage.image}
         />
-        <img src={imageURL} alt={altText} className={styledImage.image} />
       </div>
       {zoom && <Modal image={imageURL} altText={altText} setZoom={setZoom} />}
     </div>
