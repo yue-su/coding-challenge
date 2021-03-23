@@ -5,6 +5,8 @@ import Tag from '../Tag/Tag'
 import Colour from '../Colour/Colour'
 import Button from '../Button/Button'
 
+import { CSSTransition, TransitionGroup } from "react-transition-group"
+
 const Product = ({ product }) => {
 
   const { name, price, sizes, colors } = product
@@ -44,10 +46,18 @@ const Product = ({ product }) => {
 
     return (
       <div className={styledProduct.container}>
-        <Image
-          imageURL={currentColor.image.default}
-          altText={currentColor.alt}
-        />
+        <TransitionGroup>
+          <CSSTransition
+            key={currentColor.id}
+            timeout={1000}
+            classNames="imageOut"
+          >
+            <Image
+              imageURL={currentColor.image.default}
+              altText={currentColor.alt}
+            />
+          </CSSTransition>
+        </TransitionGroup>
         <div className={styledProduct.rightCol}>
           <h2>{name}</h2>
           <p>{price}</p>
