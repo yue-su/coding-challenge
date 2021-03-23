@@ -1,5 +1,4 @@
 import React from 'react'
-import styledColour from './Colour.module.css'
 
 const Colour = ({ dark, light, toggleColour, colourId, colourStatus }) => {
     
@@ -11,7 +10,6 @@ const Colour = ({ dark, light, toggleColour, colourId, colourStatus }) => {
             padding: '3px',
         }}>
         <div
-          className={styledColour.colour}
           onClick={() => toggleColour(colourId)}
           style={{
             borderRight: `15px solid ${light}`,
@@ -22,6 +20,7 @@ const Colour = ({ dark, light, toggleColour, colourId, colourStatus }) => {
             borderTopRightRadius: "15px",
             borderBottomLeftRadius: "15px",
             borderBottomRightRadius: "15px",
+            cursor: 'pointer',
           }}
         ></div>
       </div>

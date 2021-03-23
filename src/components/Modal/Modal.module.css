@@ -1,0 +1,31 @@
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:rgba(0, 0, 0, 0.418) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 1000px;
+}
+
+.close {
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    margin:15px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
