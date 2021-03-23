@@ -1,12 +1,10 @@
-
-import './App.css';
-import Product from './components/Product/Product';
+import "./App.css"
+import Product from "./components/Product/Product"
 
 const App = () => {
-
   return (
     <div className="App">
-        <Product product={product} />    
+      <Product product={product} />
     </div>
   )
 }
@@ -40,5 +38,4 @@ const product = {
   ],
 }
 
-
-export default App;
+export default App

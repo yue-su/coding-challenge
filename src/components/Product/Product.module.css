@@ -1,4 +1,4 @@
-.container{
+.container {
   max-width: 1440px;
   padding: 40px;
   display: flex;
@@ -6,25 +6,23 @@
 }
 
 .rightCol {
-  padding: 40px 60px;  
+  padding: 40px 60px;
 }
 
 .section {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .sizes,
-.colours
-{
-    display: flex;
+.colours {
+  display: flex;
 }
 
-
 .action {
-    padding-top: 40px;
-    text-align: center;
+  padding-top: 40px;
+  text-align: center;
 }
 
 hr {
-    border:1px solid #dfdfdf
+  border: 1px solid #dfdfdf;
 }

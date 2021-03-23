@@ -1,91 +1,91 @@
-import React, { useState } from 'react'
-import Image from '../Image/Image'
-import styledProduct from './Product.module.css'
-import Tag from '../Tag/Tag'
-import Colour from '../Colour/Colour'
-import Button from '../Button/Button'
+import React, { useState } from "react"
+import Image from "../Image/Image"
+import styledProduct from "./Product.module.css"
+import Tag from "../Tag/Tag"
+import Colour from "../Colour/Colour"
+import Button from "../Button/Button"
 
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 const Product = ({ product }) => {
-
   const { name, price, sizes, colors } = product
-  
+
   const sizeStatusInit = {}
-  sizes.forEach(size => sizeStatusInit[size] = true)
+  sizes.forEach((size) => (sizeStatusInit[size] = true))
 
   const colourStatusInit = {}
-  colors.forEach(colour => colourStatusInit[colour.id] = false)
-  
-    
+  colors.forEach((colour) => (colourStatusInit[colour.id] = false))
+
   const [currentColor, setCurrentColor] = useState(colors[0])
   const [sizeStatus, setSizeStatus] = useState(sizeStatusInit)
-  const [colourStatus, setColourStatus] = useState({...colourStatusInit, '0':true})
+  const [colourStatus, setColourStatus] = useState({
+    ...colourStatusInit,
+    0: true,
+  })
 
   const toggleSize = (size) => {
-    const updatedStatus = {...sizeStatusInit, [size]:false}
+    const updatedStatus = { ...sizeStatusInit, [size]: false }
     setSizeStatus(updatedStatus)
   }
 
   const toggleColour = (colourId) => {
-    const updatedStatus = {...colourStatusInit, [colourId]:true}
+    const updatedStatus = { ...colourStatusInit, [colourId]: true }
     setColourStatus(updatedStatus)
     setCurrentColor(colors[colourId])
   }
 
-
-    return (
-      <div className={styledProduct.container}>
-        <TransitionGroup>
-          <CSSTransition
-            key={currentColor.id}
-            timeout={1000}
-            classNames="imageOut"
-          >
-            <Image
-              imageURL={currentColor.image.default}
-              altText={currentColor.alt}
-            />
-          </CSSTransition>
-        </TransitionGroup>
-        <div className={styledProduct.rightCol}>
-          <h2>{name}</h2>
-          <p>{price}</p>
-          <div className={styledProduct.section}>
-            <h3>Size</h3>
-            <div className={styledProduct.sizes}>
-              {sizes.map((size) => (
-                <Tag
-                  size={size}
-                  key={size}
-                  sizeStatus={sizeStatus[size]}
-                  toggleSize={toggleSize}
-                />
-              ))}
-            </div>
-          </div>
-          <hr />
-          <div className={styledProduct.section}>
-            <h3>Colour</h3>
-            <div className={styledProduct.colours}>
-              {colors.map((colour) => (
-                <Colour
-                  key={colour.id}
-                  dark={colour.dark}
-                  light={colour.light}
-                  colourId={colour.id}
-                  colourStatus={colourStatus[colour.id]}
-                  toggleColour={toggleColour}
-                />
-              ))}
-            </div>
-          </div>
-          <div className={styledProduct.action}>
-            <Button>Add to Cart</Button>
+  return (
+    <div className={styledProduct.container}>
+      <TransitionGroup>
+        <CSSTransition
+          key={currentColor.id}
+          timeout={1000}
+          classNames="imageOut"
+        >
+          <Image
+            imageURL={currentColor.image.default}
+            altText={currentColor.alt}
+          />
+        </CSSTransition>
+      </TransitionGroup>
+      <div className={styledProduct.rightCol}>
+        <h2>{name}</h2>
+        <p>{price}</p>
+        <div className={styledProduct.section}>
+          <h3>Size</h3>
+          <div className={styledProduct.sizes}>
+            {sizes.map((size) => (
+              <Tag
+                size={size}
+                key={size}
+                sizeStatus={sizeStatus[size]}
+                toggleSize={toggleSize}
+              />
+            ))}
           </div>
         </div>
+        <hr />
+        <div className={styledProduct.section}>
+          <h3>Colour</h3>
+          <div className={styledProduct.colours}>
+            {colors.map((colour) => (
+              <Colour
+                key={colour.id}
+                dark={colour.dark}
+                light={colour.light}
+                colourId={colour.id}
+                colourStatus={colourStatus[colour.id]}
+                toggleColour={toggleColour}
+              />
+            ))}
+          </div>
+        </div>
+        <div className={styledProduct.action}>
+          <Button>Add to Cart</Button>
+        </div>
       </div>
-    )
+    </div>
+  )
 }
 
 export default Product
