@@ -15,30 +15,20 @@ const Product = ({ product }) => {
   sizes.forEach(size => sizeStatusInit[size] = true)
 
   const colourStatusInit = {}
-  colors.forEach(colour => {
-    if(colour.id === '0') colourStatusInit[colour.id] = true
-    else colourStatusInit[colour.id] = false
-  })
+  colors.forEach(colour => colourStatusInit[colour.id] = false)
+  
     
   const [currentColor, setCurrentColor] = useState(colors[0])
   const [sizeStatus, setSizeStatus] = useState(sizeStatusInit)
-  const [colourStatus, setColourStatus] = useState(colourStatusInit)
+  const [colourStatus, setColourStatus] = useState({...colourStatusInit, '0':true})
 
   const toggleSize = (size) => {
-    const updatedStatus = {}
-    for (let key of Object.keys(sizeStatus)) {
-      if (key === size) updatedStatus[key] = false 
-      else updatedStatus[key] = true
-    }
+    const updatedStatus = {...sizeStatusInit, [size]:false}
     setSizeStatus(updatedStatus)
   }
 
   const toggleColour = (colourId) => {
-    const updatedStatus = {}
-    for (let key of Object.keys(colourStatus)) {
-      if (key === colourId) updatedStatus[key] = true
-      else updatedStatus[key] = false
-    }
+    const updatedStatus = {...colourStatusInit, [colourId]:true}
     setColourStatus(updatedStatus)
     setCurrentColor(colors[colourId])
   }
